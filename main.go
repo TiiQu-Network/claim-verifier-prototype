@@ -1,12 +1,14 @@
 package main
 
 import (
-	"github.com/TiiQu-Network/claim-verifier-prototype/http/routes"
 	"log"
-	"net/http"
+
+	"github.com/TiiQu-Network/claim-verifier-prototype/test/actions"
 )
 
 func main() {
-	routes.Routes()
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	app := actions.App()
+	if err := app.Serve(); err != nil {
+		log.Fatal(err)
+	}
 }
