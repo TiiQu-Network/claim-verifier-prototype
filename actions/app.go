@@ -11,6 +11,7 @@ import (
 	"github.com/gobuffalo/buffalo/middleware/csrf"
 	"github.com/gobuffalo/buffalo/middleware/i18n"
 	"github.com/gobuffalo/packr"
+	"github.com/TiiQu-Network/claim-verifier-prototype/http/routes"
 )
 
 // ENV is used to help switch settings based on where the
@@ -49,12 +50,12 @@ func App() *buffalo.App {
 
 		// Setup and use translations:
 		var err error
-		if T, err = i18n.New(packr.NewBox("../locales"), "en-US"); err != nil {
+		if T, err = i18n.New(packr.NewBox("../locales"), "en-GB"); err != nil {
 			app.Stop(err)
 		}
 		app.Use(T.Middleware())
 
-		app.GET("/", HomeHandler)
+		routes.Routes(app)
 
 		app.ServeFiles("/", assetsBox) // serve files from the public directory
 	}

@@ -2,35 +2,39 @@ package routes
 
 import (
 	"github.com/TiiQu-Network/claim-verifier-prototype/http/controllers"
-	"net/http"
+	"github.com/gobuffalo/buffalo"
 )
 
-func Routes() {
-	http.HandleFunc("/", controllers.Handler)
+func Routes(app *buffalo.App) {
+	// Home routes
+	homeController := new(controllers.Home)
+	app.GET("/", homeController.Home)
+	app.GET("/regenerate/", homeController.Regenerate)
 
+	// Institution routes
 	institutionController := new(controllers.Institution)
-	//TODO below should not belong to this controller
-	http.HandleFunc("/institution/regenerate/", institutionController.Regenerate)
+	app.Resource("/institution/",  &controllers.InstitutionResource{&buffalo.BaseResource{}})
+	app.GET("/institution/{institution}/students/", institutionController.Students)
+	app.GET("/institution/{institution}/students/toBlockchain/", institutionController.ToBlockchain)
+	app.GET("/institution/{institution}/blockchain/", institutionController.Blockchain)
 
-	http.HandleFunc("/institution/", controllers.Handler)
-	http.HandleFunc("/institution/{institution}/students/", institutionController.Students)
-	http.HandleFunc("/institution/{institution}/students/toBlockchain/", institutionController.ToBlockchain)
-	http.HandleFunc("/institution/{institution}/blockchain/", institutionController.Blockchain)
-
+	// Student routes
 	studentController := new(controllers.Student)
-	http.HandleFunc("/student/", controllers.Handler)
-	http.HandleFunc("/student/{student}/to-blockchain/", studentController.ToBlockchain)
+	app.Resource("/student/", &controllers.StudentResource{&buffalo.BaseResource{}})
+	app.GET("/student/{student}/to-blockchain/", studentController.ToBlockchain)
 
+	// Platform Members routes
 	memberController := new(controllers.Member)
-	http.HandleFunc("/member/", controllers.Handler)
-	http.HandleFunc("/member/{member}/certifications/", memberController.Certifications)
-	http.HandleFunc("/member/{member}/certifications/add/", memberController.AddCertification)
-	http.HandleFunc("/member/{member}/blockchain/", memberController.Blockchain)
+	app.Resource("/member/", &controllers.MemberResource{&buffalo.BaseResource{}})
+	app.GET("/member/{member}/certifications/", memberController.Certifications)
+	app.GET("/member/{member}/certifications/add/", memberController.AddCertification)
+	app.GET("/member/{member}/blockchain/", memberController.Blockchain)
 
+	// Certification routes
 	memberCertificationController := new(controllers.MemberCertification)
-	http.HandleFunc("/member-certification/", controllers.Handler)
-	http.HandleFunc("/member-certification/{memberCertification}/to-blockchain/", memberCertificationController.ToBlockchain)
+	app.Resource("/member-certification/", &controllers.MemberCertificationResource{&buffalo.BaseResource{}})
+	app.GET("/member-certification/{memberCertification}/to-blockchain/", memberCertificationController.ToBlockchain)
 
-	dataHashController := new(controllers.DataHash)
-	http.HandleFunc("/dataHash/", dataHashController.Resource)
+	// Data-hash routes
+	app.Resource("/dataHash/", &controllers.DataHashResource{&buffalo.BaseResource{}})
 }

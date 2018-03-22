@@ -2,11 +2,13 @@ package controllers
 
 import (
 	"net/http"
+	"github.com/gobuffalo/buffalo"
 )
 
-type DataHash struct {}
+type DataHash struct {
+	Controller
+}
 
-// TODO resource access
-func (d DataHash) Resource(w http.ResponseWriter, r *http.Request) {
-
+type DataHashResource struct{
+	buffalo.Resource
 }

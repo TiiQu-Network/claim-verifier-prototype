@@ -2,12 +2,18 @@ package controllers
 
 import (
 	"net/http"
+	"github.com/gobuffalo/buffalo"
 )
 
-type MemberCertification struct {}
+type MemberCertification struct {
+	Controller
+}
 
-// TODO Resource access
+type MemberCertificationResource struct{
+	buffalo.Resource
+}
 
-func (m MemberCertification) ToBlockchain(w http.ResponseWriter, r *http.Request) {
+func (m MemberCertification) ToBlockchain(c buffalo.Context) error {
 	// TODO
+	return new(error)
 }

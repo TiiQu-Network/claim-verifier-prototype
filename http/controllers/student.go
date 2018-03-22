@@ -1,11 +1,19 @@
 package controllers
 
-import "net/http"
+import (
+	"net/http"
+	"github.com/gobuffalo/buffalo"
+)
 
-type Student struct{}
+type Student struct{
+	Controller
+}
 
-// TODO Resource access
+type StudentResource struct{
+	buffalo.Resource
+}
 
-func (s Student) ToBlockchain(w http.ResponseWriter, r *http.Request) {
+func (s Student) ToBlockchain(c buffalo.Context) error {
 	// TODO
+	return new(error)
 }
