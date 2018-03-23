@@ -4,15 +4,15 @@ import (
 	"github.com/gobuffalo/buffalo"
 )
 
-type Student struct {
+type Recipient struct {
 	Controller
 }
 
-type StudentResource struct {
+type RecipientResource struct {
 	buffalo.Resource
 }
 
-func (s Student) ToBlockchain(c buffalo.Context) error {
+func (r Recipient) ToBlockchain(c buffalo.Context) error {
 	// TODO
 	return new(error)
 }

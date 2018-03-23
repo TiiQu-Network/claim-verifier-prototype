@@ -1,1 +1,1 @@
-drop_table("students")
+drop_table("recipients")
