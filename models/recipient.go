@@ -12,19 +12,19 @@ import (
 )
 
 type Recipient struct {
-	ID              uuid.UUID   `json:"id" db:"id"`
-	CreatedAt       time.Time   `json:"created_at" db:"created_at"`
-	UpdatedAt       time.Time   `json:"updated_at" db:"updated_at"`
-	FirstName       string      `json:"first_name" db:"first_name"`
-	LastName        string      `json:"last_name" db:"last_name"`
-	Dob             time.Time   `json:"dob" db:"dob"`
-	AddressID       nulls.Int   `json:"address_id" db:"address_id"`
-	EstablishmentID nulls.Int   `json:"establishment_id" db:"establishment_id"`
+	ID            uuid.UUID   `json:"id" db:"id"`
+	CreatedAt     time.Time   `json:"created_at" db:"created_at"`
+	UpdatedAt     time.Time   `json:"updated_at" db:"updated_at"`
+	FirstName     string      `json:"first_name" db:"first_name"`
+	LastName      string      `json:"last_name" db:"last_name"`
+	Dob           time.Time   `json:"dob" db:"dob"`
+	AddressID     nulls.Int   `json:"address_id" db:"address_id"`
+	InstitutionID nulls.Int   `json:"institution_id" db:"institution_id"`
 
 	// Relationships
-	Address         Address     `belongs_to:"recipients"`
-	Issues          Issues      `has_many:"issues"`
-	Institution     Institution `belongs_to:"institution"`
+	Address       Address     `belongs_to:"recipients"`
+	Issues        Issues      `has_many:"issues"`
+	Institution   Institution `belongs_to:"institution"`
 }
 
 // String is not required by pop and may be deleted
