@@ -1,15 +1,14 @@
 package controllers
 
 import (
-	"net/http"
 	"github.com/gobuffalo/buffalo"
 )
 
-type Student struct{
+type Student struct {
 	Controller
 }
 
-type StudentResource struct{
+type StudentResource struct {
 	buffalo.Resource
 }
 

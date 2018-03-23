@@ -1,0 +1,9 @@
+create_table("addresses", func(t) {
+	t.Column("id", "uuid", {"primary": true})
+	t.Column("first_line", "text", {})
+	t.Column("second_line", "text", {})
+	t.Column("town", "text", {})
+	t.Column("county", "text", {})
+	t.Column("postcode", "text", {})
+	t.Column("country", "text", {})
+})

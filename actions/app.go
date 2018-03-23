@@ -7,11 +7,11 @@ import (
 	"github.com/gobuffalo/envy"
 	"github.com/unrolled/secure"
 
-	"github.com/TiiQu-Network/claim-verifier-prototype/test/models"
+	"github.com/TiiQu-Network/claim-verifier-prototype/http/routes"
+	"github.com/TiiQu-Network/claim-verifier-prototype/models"
 	"github.com/gobuffalo/buffalo/middleware/csrf"
 	"github.com/gobuffalo/buffalo/middleware/i18n"
 	"github.com/gobuffalo/packr"
-	"github.com/TiiQu-Network/claim-verifier-prototype/http/routes"
 )
 
 // ENV is used to help switch settings based on where the

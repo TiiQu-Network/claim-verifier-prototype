@@ -1,0 +1,11 @@
+create_table("platform_member_claims", func(t) {
+	t.Column("id", "uuid", {"primary": true})
+	t.Column("member_id", "integer", {})
+	t.Column("address_id", "integer", {})
+	t.Column("recipient_ref", "string", {})
+	t.Column("issue_id", "integer", {})
+	t.Column("issue_level_id", "integer", {})
+	t.Column("issue_date", "timestamp", {})
+	t.Column("verified", "bool", {"null": true})
+	t.Column("contract_id", "integer", {"null": true})
+})

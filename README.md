@@ -1,8 +1,22 @@
+# Notes
+
+To work with this version you require sqlite installed with Buffalo, so install it with the below command:
+
+```
+go get -u -v -tags sqlite github.com/gobuffalo/buffalo/buffalo
+```
+
+For further details see here : https://gobuffalo.io/en/docs/installation
+
 # Welcome to Buffalo!
 
 Thank you for choosing Buffalo for your web development needs.
 
 ## Database Setup
+
+See https://github.com/gobuffalo/pop#connecting-to-databases for full details on setting up the database configuration.
+
+See https://github.com/gobuffalo/pop/blob/master/fizz/README.md for details on model and migration syntax.
 
 It looks like you chose to set up your application using a postgres database! Fantastic!
 

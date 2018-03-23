@@ -8,7 +8,7 @@ type Institution struct {
 	Controller
 }
 
-type InstitutionResource struct{
+type InstitutionResource struct {
 	buffalo.Resource
 }
 

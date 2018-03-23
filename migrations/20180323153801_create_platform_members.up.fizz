@@ -1,0 +1,8 @@
+create_table("platform_members", func(t) {
+	t.Column("id", "uuid", {"primary": true})
+	t.Column("first_name", "text", {})
+	t.Column("last_name", "text", {})
+	t.Column("dob", "timestamp", {})
+	t.Column("blockchain_address", "text", {})
+	t.Column("recipient_id", "integer", {"null": true})
+})

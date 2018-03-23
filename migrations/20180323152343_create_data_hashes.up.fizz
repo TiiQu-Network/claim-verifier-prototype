@@ -1,0 +1,9 @@
+create_table("data_hashes", func(t) {
+	t.Column("id", "uuid", {"primary": true})
+	t.Column("personal_data", "text", {})
+	t.Column("personal_constituents", "string", {"null": true})
+	t.Column("certification_data", "text", {})
+	t.Column("certification_constituents", "string", {"null": true})
+	t.Column("claimant_address", "string", {"null": true})
+	t.Column("establishment_id", "integer", {"null": true})
+})

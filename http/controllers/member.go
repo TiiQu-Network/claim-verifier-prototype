@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"net/http"
 	"github.com/gobuffalo/buffalo"
 )
 
@@ -9,7 +8,7 @@ type Member struct {
 	Controller
 }
 
-type MemberResource struct{
+type MemberResource struct {
 	buffalo.Resource
 }
 

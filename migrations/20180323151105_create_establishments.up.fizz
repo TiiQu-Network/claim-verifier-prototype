@@ -1,0 +1,5 @@
+create_table("establishments", func(t) {
+	t.Column("id", "uuid", {"primary": true})
+	t.Column("name", "text", {})
+	t.Column("salt", "text", {})
+})

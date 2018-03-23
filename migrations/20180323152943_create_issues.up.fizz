@@ -1,0 +1,8 @@
+create_table("issues", func(t) {
+	t.Column("id", "uuid", {"primary": true})
+	t.Column("recipient_id", "integer", {})
+	t.Column("recipient_ref", "text", {})
+	t.Column("issueable_id", "integer", {})
+	t.Column("issueable_level_id", "integer", {})
+	t.Column("issue_date", "date", {})
+})

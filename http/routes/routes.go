@@ -13,7 +13,7 @@ func Routes(app *buffalo.App) {
 
 	// Institution routes
 	institutionController := new(controllers.Institution)
-	app.Resource("/institution/",  &controllers.InstitutionResource{&buffalo.BaseResource{}})
+	app.Resource("/institution/", &controllers.InstitutionResource{&buffalo.BaseResource{}})
 	app.GET("/institution/{institution}/students/", institutionController.Students)
 	app.GET("/institution/{institution}/students/toBlockchain/", institutionController.ToBlockchain)
 	app.GET("/institution/{institution}/blockchain/", institutionController.Blockchain)

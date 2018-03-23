@@ -1,13 +1,11 @@
 development:
-  dialect: postgres
-  database: test_development
-  user: postgres
-  password: postgres
-  host: 127.0.0.1
-  pool: 5
+  dialect: "sqlite3"
+  database: C:\Users\samyo\go\src\github.com\TiiQu-Network\claim-verifier-prototype\cache\development.sqlite
 
 test:
-  url: {{envOr "TEST_DATABASE_URL" "postgres://postgres:postgres@127.0.0.1:5432/test_test?sslmode=disable"}}
+  dialect: "sqlite3"
+  database: C:\Users\samyo\go\src\github.com\TiiQu-Network\claim-verifier-prototype\cache\test.sqlite
 
 production:
-  url: {{envOr "DATABASE_URL" "postgres://postgres:postgres@127.0.0.1:5432/test_production?sslmode=disable"}}
+  dialect: "sqlite3"
+  database: C:\Users\samyo\go\src\github.com\TiiQu-Network\claim-verifier-prototype\cache\production.sqlite
