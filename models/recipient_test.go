@@ -2,6 +2,6 @@ package models
 
 import "testing"
 
-func Test_Student(t *testing.T) {
+func Test_Recipient(t *testing.T) {
 	t.Fatal("This test needs to be implemented!")
 }
