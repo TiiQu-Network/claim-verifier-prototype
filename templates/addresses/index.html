@@ -1,0 +1,29 @@
+<div class="page-header">
+  <h1>Addresses</h1>
+</div>
+<ul class="list-unstyled list-inline">
+  <li><a href="<%= newAddressesPath() %>" class="btn btn-primary">Create New Address</a></li>
+</ul>
+
+<table class="table table-striped">
+  <thead>
+  <th>&nbsp;</th>
+  </thead>
+  <tbody>
+    <%= for (address) in addresses { %>
+      <tr>
+      <td>
+          <div class="pull-right">
+            <a href="<%= addressPath({ address_id: address.ID }) %>" class="btn btn-info">View</a>
+            <a href="<%= editAddressPath({ address_id: address.ID }) %>" class="btn btn-warning">Edit</a>
+            <a href="<%= addressPath({ address_id: address.ID }) %>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
+          </div>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<div class="text-center">
+  <%= paginator(pagination) %>
+</div>

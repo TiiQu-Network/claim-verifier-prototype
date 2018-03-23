@@ -1,0 +1,6 @@
+- id: "address.created.success"
+  translation: "Address was successfully created."
+- id: "address.updated.success"
+  translation: "Address was successfully updated."
+- id: "address.destroyed.success"
+  translation: "Address was successfully destroyed."
