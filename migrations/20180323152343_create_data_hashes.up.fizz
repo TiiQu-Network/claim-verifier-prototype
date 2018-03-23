@@ -5,5 +5,5 @@ create_table("data_hashes", func(t) {
 	t.Column("certification_data", "text", {})
 	t.Column("certification_constituents", "string", {"null": true})
 	t.Column("claimant_address", "string", {"null": true})
-	t.Column("establishment_id", "integer", {"null": true})
+	t.Column("institution_id", "integer", {"null": true})
 })

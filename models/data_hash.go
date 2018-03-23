@@ -20,7 +20,7 @@ type DataHash struct {
 	CertificationData         string       `json:"certification_datum" db:"certification_datum"`
 	CertificationConstituents nulls.String `json:"certification_constituent" db:"certification_constituent"`
 	ClaimantAddress           nulls.String `json:"claimant_address" db:"claimant_address"`
-	EstablishmentID           nulls.Int    `json:"establishment_id" db:"establishment_id"`
+	InstitutionID             nulls.Int    `json:"institution_id" db:"institution_id"`
 }
 
 // String is not required by pop and may be deleted
