@@ -19,6 +19,9 @@ type Issue struct {
 	IssueableID      int       `json:"issueable_id" db:"issueable_id"`
 	IssueableLevelID int       `json:"issueable_level_id" db:"issueable_level_id"`
 	IssueDate        time.Time `json:"issue_date" db:"issue_date"`
+
+	// Relationship
+	Issueable        Issueable `belongs_to:"issueables"`
 }
 
 // String is not required by pop and may be deleted

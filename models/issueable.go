@@ -12,12 +12,15 @@ import (
 )
 
 type Issueable struct {
-	ID                     uuid.UUID `json:"id" db:"id"`
-	CreatedAt              time.Time `json:"created_at" db:"created_at"`
-	UpdatedAt              time.Time `json:"updated_at" db:"updated_at"`
-	Name                   string    `json:"name" db:"name"`
-	EstablishmentReference string    `json:"establishment_reference" db:"establishment_reference"`
-	EstablishmentID        nulls.Int `json:"establishment_id" db:"establishment_id"`
+	ID                   uuid.UUID   `json:"id" db:"id"`
+	CreatedAt            time.Time   `json:"created_at" db:"created_at"`
+	UpdatedAt            time.Time   `json:"updated_at" db:"updated_at"`
+	Name                 string      `json:"name" db:"name"`
+	InstitutionReference string      `json:"institution_reference" db:"institution_reference"`
+	InstitutionID        nulls.Int   `json:"institution_id" db:"institution_reference"`
+
+	// Relationships
+	Institution          Institution `belongs_to:"institution"`
 }
 
 // String is not required by pop and may be deleted
@@ -40,7 +43,7 @@ func (i Issueables) String() string {
 func (i *Issueable) Validate(tx *pop.Connection) (*validate.Errors, error) {
 	return validate.Validate(
 		&validators.StringIsPresent{Field: i.Name, Name: "Name"},
-		&validators.StringIsPresent{Field: i.EstablishmentReference, Name: "EstablishmentReference"},
+		&validators.StringIsPresent{Field: i.InstitutionReference, Name: "InstitutionReference"},
 	), nil
 }
 

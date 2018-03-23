@@ -21,6 +21,9 @@ type Address struct {
 	County     nulls.String `json:"county" db:"county"`
 	Postcode   string       `json:"postcode" db:"postcode"`
 	Country    string       `json:"country" db:"country"`
+
+	// Relationships
+	Recipient  Recipient    `has_one:"recipient"`
 }
 
 // String is not required by pop and may be deleted

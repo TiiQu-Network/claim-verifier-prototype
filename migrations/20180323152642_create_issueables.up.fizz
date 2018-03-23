@@ -1,6 +1,6 @@
 create_table("issueables", func(t) {
 	t.Column("id", "uuid", {"primary": true})
 	t.Column("name", "text", {})
-	t.Column("establishment_reference", "text", {})
-	t.Column("establishment_id", "integer", {"null": true})
+	t.Column("institution_reference", "text", {})
+	t.Column("institution_id", "integer", {"null": true})
 })

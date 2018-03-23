@@ -17,12 +17,19 @@ type PlatformMemberClaim struct {
 	UpdatedAt    time.Time  `json:"updated_at" db:"updated_at"`
 	MemberID     int        `json:"member_id" db:"member_id"`
 	AddressID    int        `json:"address_id" db:"address_id"`
-	RecipientRef string     `json:"establishment_reference" db:"establishment_reference"`
+	RecipientRef string     `json:"institution_reference" db:"institution_reference"`
 	IssueID      int        `json:"issue_id" db:"issue_id"`
 	IssueLevelID int        `json:"issue_level_id" db:"issue_level_id"`
 	IssueDate    time.Time  `json:"issue_date" db:"issue_date"`
 	Verified     nulls.Bool `json:"verified" db:"verified"`
 	ContractID   nulls.Int  `json:"contract_id" db:"contract_id"`
+
+	// Relationships
+	// TODO level
+	Issueable Issueable      `belongs_to:"issuables"`
+	Member    PlatformMember `belongs_to:"platform_members"`
+	Address   Address        `belongs_to:"addresses"`
+	Contract  DataHash       `belongs_to:"data_hashes"`
 }
 
 // String is not required by pop and may be deleted
