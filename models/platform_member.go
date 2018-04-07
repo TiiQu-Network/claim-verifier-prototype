@@ -22,8 +22,8 @@ type PlatformMember struct {
 	RecipientRef      nulls.Int `json:"recipient_id" db:"recipient_id"`
 
 	// Relationships
-	Claims PlatformMemberClaims `has_many:"platform_member_claims"`
-	Recipient Recipient `belongs_to:"recipients"`
+	Claims    PlatformMemberClaims `has_many:"platform_member_claims"`
+	Recipient Recipient            `belongs_to:"recipients"`
 }
 
 // String is not required by pop and may be deleted

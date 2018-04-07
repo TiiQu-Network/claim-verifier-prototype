@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"github.com/gobuffalo/buffalo"
+	"errors"
 )
 
 type Institution struct {
@@ -14,15 +15,15 @@ type InstitutionResource struct {
 
 func (i Institution) Students(c buffalo.Context) error {
 	// TODO
-	return new(error)
+	return errors.New("")
 }
 
 func (i Institution) ToBlockchain(c buffalo.Context) error {
 	// TODO
-	return new(error)
+	return errors.New("")
 }
 
 func (i Institution) Blockchain(c buffalo.Context) error {
 	// TODO
-	return new(error)
+	return errors.New("")
 }

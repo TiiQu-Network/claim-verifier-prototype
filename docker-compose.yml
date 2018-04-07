@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+
+  mysql-dev:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: development
+    ports:
+      - "3306:3306"

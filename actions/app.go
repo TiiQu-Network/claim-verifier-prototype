@@ -58,7 +58,7 @@ func App() *buffalo.App {
 		routes.Routes(app)
 
 		app.Resource("/addresses", AddressesResource{})
-		
+
 		app.ServeFiles("/", assetsBox) // serve files from the public directory
 	}
 

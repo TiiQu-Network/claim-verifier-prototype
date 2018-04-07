@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"errors"
 	"github.com/gobuffalo/buffalo"
 )
 
@@ -14,15 +15,15 @@ type MemberResource struct {
 
 func (m Member) Certifications(c buffalo.Context) error {
 	// TODO
-	return new(error)
+	return errors.New("")
 }
 
 func (m Member) AddCertification(c buffalo.Context) error {
 	// TODO
-	return new(error)
+	return errors.New("")
 }
 
 func (m Member) Blockchain(c buffalo.Context) error {
 	// TODO
-	return new(error)
+	return errors.New("")
 }

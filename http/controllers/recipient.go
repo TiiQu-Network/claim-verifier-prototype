@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"errors"
 	"github.com/gobuffalo/buffalo"
 )
 
@@ -14,5 +15,5 @@ type RecipientResource struct {
 
 func (r Recipient) ToBlockchain(c buffalo.Context) error {
 	// TODO
-	return new(error)
+	return errors.New("")
 }

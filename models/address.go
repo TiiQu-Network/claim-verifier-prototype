@@ -23,7 +23,7 @@ type Address struct {
 	Country    string       `json:"country" db:"country"`
 
 	// Relationships
-	Recipient  Recipient    `has_one:"recipient"`
+	Recipient Recipient `has_one:"recipient"`
 }
 
 // String is not required by pop and may be deleted

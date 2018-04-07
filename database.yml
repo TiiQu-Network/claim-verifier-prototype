@@ -1,11 +1,25 @@
+# for details see https://github.com/gobuffalo/pop#connecting-to-databases
+
 development:
-  dialect: "sqlite3"
-  database: C:\Users\samyo\go\src\github.com\TiiQu-Network\claim-verifier-prototype\cache\development.sqlite
+  dialect: "mysql"
+  database: "development"
+  host: "localhost"
+  port: "3306"
+  user: "root"
+  password: "root"
 
 test:
-  dialect: "sqlite3"
-  database: C:\Users\samyo\go\src\github.com\TiiQu-Network\claim-verifier-prototype\cache\test.sqlite
+  dialect: "mysql"
+  database: "test"
+  host: "localhost"
+  port: "3306"
+  user: "root"
+  password: "root"
 
 production:
-  dialect: "sqlite3"
-  database: C:\Users\samyo\go\src\github.com\TiiQu-Network\claim-verifier-prototype\cache\production.sqlite
+  dialect: "mysql"
+  database: "production"
+  host: "localhost"
+  port: "3306"
+  user: "root"
+  password: "root"
