@@ -5,6 +5,6 @@ type Controller struct {
 	Routes map[string]string
 }
 
-func (c Controller) Url(p string) string {
-	return c.BaseUrl + p
+func (c Controller) Url(i string) string {
+	return c.BaseUrl + c.Routes[i]
 }
