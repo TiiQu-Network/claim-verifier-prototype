@@ -1,29 +1,44 @@
 package controllers
 
 import (
+	"errors"
 	"github.com/gobuffalo/buffalo"
-	"github.com/pkg/errors"
 )
 
 type HomeController struct {
 	Controller
 }
 
-var Home *HomeController
+var (
+	Home HomeController
+)
 
-func init(){
-	Home = new(HomeController)
+func init() {
+	Home = HomeController{Controller{
+		BaseUrl: "/",
+		Routes: map[string]string{
+			"idx": "",
+			"tut": "tutorial/",
+			"reg": "regenerate/",
+		},
+	}}
 }
 
-func (h HomeController) Index(c buffalo.Context) error {
-	return c.Render(200, p.HTML("home/welcome.html"))
+func (h HomeController) Index() (string, buffalo.Handler) {
+	return h.Url(h.Routes["idx"]), func(c buffalo.Context) error {
+		return c.Render(200, p.HTML("home/welcome.html"))
+	}
 }
 
-func (h HomeController) Tutorial(c buffalo.Context) error {
-	return c.Render(200, r.HTML("home/tutorial.html"))
+func (h HomeController) Tutorial() (string, buffalo.Handler) {
+	return h.Url(h.Routes["tut"]), func(c buffalo.Context) error {
+		return c.Render(200, r.HTML("home/tutorial.html"))
+	}
 }
 
-func (h HomeController) Regenerate(c buffalo.Context) error {
-	// TODO
-	return errors.New("")
+func (h HomeController) Regenerate() (string, buffalo.Handler) {
+	return h.Url(h.Routes["reg"]), func(c buffalo.Context) error {
+		// TODO
+		return errors.New("")
+	}
 }

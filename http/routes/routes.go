@@ -7,16 +7,17 @@ import (
 
 func Routes(app *buffalo.App) {
 	// HomeController routes
-	app.GET("/", controllers.Home.Index)
-	app.GET("/tutorial/", controllers.Home.Tutorial)
-	app.GET("/regenerate/", controllers.Home.Regenerate)
+	home := controllers.Home
+	app.GET(home.Index())
+	app.GET(home.Tutorial())
+	app.GET(home.Regenerate())
 
-	// Institution routes
-	institutionController := new(controllers.Institution)
-	app.Resource("/institution/", new(controllers.InstitutionResource))
-	app.GET("/institution/{institution}/students/", institutionController.Students)
-	app.GET("/institution/{institution}/students/toBlockchain/", institutionController.ToBlockchain)
-	app.GET("/institution/{institution}/blockchain/", institutionController.Blockchain)
+	// InstitutionController routes
+	inst := controllers.Institution
+	app.Resource(inst.Url(""), inst.Resource)
+	app.GET(inst.Url("{inst}/students/"), inst.Students)
+	app.GET(inst.Url("{inst}/students/toBlockchain/"), inst.ToBlockchain)
+	app.GET(inst.Url("/{inst}/blockchain/"), inst.Blockchain)
 
 	// Recipient routes
 	studentController := new(controllers.Recipient)

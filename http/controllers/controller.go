@@ -1,9 +1,10 @@
 package controllers
 
-import (
-	"github.com/gobuffalo/buffalo"
-)
-
 type Controller struct {
-	buffalo.Handler
+	BaseUrl string
+	Routes map[string]string
+}
+
+func (c Controller) Url(p string) string {
+	return c.BaseUrl + p
 }

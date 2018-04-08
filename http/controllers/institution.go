@@ -5,25 +5,35 @@ import (
 	"errors"
 )
 
-type Institution struct {
+type InstitutionController struct {
 	Controller
+	Resource buffalo.Resource
 }
 
 type InstitutionResource struct {
 	buffalo.Resource
 }
 
-func (i Institution) Students(c buffalo.Context) error {
+var Institution InstitutionController
+
+func init(){
+	Institution = InstitutionController{
+		Controller{BaseUrl:"/institution/"},
+		InstitutionResource{},
+	}
+}
+
+func (i InstitutionController) Students(c buffalo.Context) error {
 	// TODO
 	return errors.New("")
 }
 
-func (i Institution) ToBlockchain(c buffalo.Context) error {
+func (i InstitutionController) ToBlockchain(c buffalo.Context) error {
 	// TODO
 	return errors.New("")
 }
 
-func (i Institution) Blockchain(c buffalo.Context) error {
+func (i InstitutionController) Blockchain(c buffalo.Context) error {
 	// TODO
 	return errors.New("")
 }
