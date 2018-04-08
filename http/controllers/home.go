@@ -5,16 +5,25 @@ import (
 	"github.com/pkg/errors"
 )
 
-type Home struct {
+type HomeController struct {
 	Controller
 }
 
-func (h Home) Home(c buffalo.Context) error {
-	// TODO
-	return c.Render(200, r.HTML("welcome.html"))
+var Home *HomeController
+
+func init(){
+	Home = new(HomeController)
 }
 
-func (h Home) Regenerate(c buffalo.Context) error {
+func (h HomeController) Index(c buffalo.Context) error {
+	return c.Render(200, p.HTML("home/welcome.html"))
+}
+
+func (h HomeController) Tutorial(c buffalo.Context) error {
+	return c.Render(200, r.HTML("home/tutorial.html"))
+}
+
+func (h HomeController) Regenerate(c buffalo.Context) error {
 	// TODO
 	return errors.New("")
 }

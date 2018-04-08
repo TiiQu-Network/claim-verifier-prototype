@@ -6,10 +6,10 @@ import (
 )
 
 func Routes(app *buffalo.App) {
-	// Home routes
-	homeController := new(controllers.Home)
-	app.GET("/", homeController.Home)
-	app.GET("/regenerate/", homeController.Regenerate)
+	// HomeController routes
+	app.GET("/", controllers.Home.Index)
+	app.GET("/tutorial/", controllers.Home.Tutorial)
+	app.GET("/regenerate/", controllers.Home.Regenerate)
 
 	// Institution routes
 	institutionController := new(controllers.Institution)

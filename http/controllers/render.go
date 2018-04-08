@@ -6,15 +6,17 @@ import (
 )
 
 var r *render.Engine
-var assetsBox = packr.NewBox("../public")
+var p *render.Engine
+var assetsBox = packr.NewBox("../../public")
+var templateBox = packr.NewBox("../../templates")
 
 func init() {
 	r = render.New(render.Options{
 		// HTML layout to be used for all HTML requests:
-		HTMLLayout: "application.html",
+		HTMLLayout: "layouts/application.html",
 
 		// Box containing all of the templates:
-		TemplatesBox: packr.NewBox("../../templates"),
+		TemplatesBox: templateBox,
 		AssetsBox:    assetsBox,
 
 		// Add template helpers here:
@@ -23,5 +25,10 @@ func init() {
 			// "form":     plush.FormHelper,
 			// "form_for": plush.FormForHelper,
 		},
+	})
+
+	p = render.New(render.Options{
+		TemplatesBox: templateBox,
+		AssetsBox:    assetsBox,
 	})
 }

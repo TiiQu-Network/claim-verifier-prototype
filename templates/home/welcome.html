@@ -66,28 +66,28 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
+            <%= if (!true) { %>
                 <div class="top-right links">
                     @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="/home">Home</a>
                     @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
+                        <a href="/login">Login</a>
+                        <a href="/register">Register</a>
                     @endif
                 </div>
-            @endif
+            <% } %>
 
             <div class="content">
                 <div class="title m-b-md">
                     TiiQu
                 </div>
-                <h2>Prototypes and Proof of Concepts :</h2>
+                <h2>Certification and Verification Prototype 0.2.0 :</h2>
 
 
                 <div class="links">
-                    <a href="{{ route('verifier') }}">Verifier</a>
-                    <a href="{{ url('') }}">TQ Node Tree</a>
-                    <a href="https://github.com/Samyoul/TiiQu-Verifier">GitHub</a>
+                    <a href="/tutorial">Tutorial</a>
+                    <a href="/play">Play</a>
+                    <a href="https://github.com/TiiQu-Network/claim-verifier-prototype" target="_blank">Source Code</a>
                 </div>
             </div>
         </div>
