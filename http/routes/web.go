@@ -5,7 +5,7 @@ import (
 	"github.com/gobuffalo/buffalo"
 )
 
-func Routes(app *buffalo.App) {
+func Web(app *buffalo.App) {
 	// HomeController routes
 	home := controllers.Home
 	app.GET(home.Index())

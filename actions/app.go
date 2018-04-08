@@ -55,7 +55,7 @@ func App() *buffalo.App {
 		}
 		app.Use(T.Middleware())
 
-		routes.Routes(app)
+		routes.Web(app)
 
 		app.Resource("/addresses", AddressesResource{})
 
