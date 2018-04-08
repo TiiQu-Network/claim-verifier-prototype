@@ -20,9 +20,9 @@ func Routes(app *buffalo.App) {
 	app.GET(inst.Blockchain())
 
 	// Recipient routes
-	studentController := new(controllers.Recipient)
-	app.Resource("/student/", new(controllers.RecipientResource))
-	app.GET("/student/{student}/to-blockchain/", studentController.ToBlockchain)
+	recp := controllers.Recipient
+	app.Resource(recp.Url(""), recp.Resource)
+	app.GET(recp.ToBlockchain())
 
 	// Platform Members routes
 	memberController := new(controllers.Member)

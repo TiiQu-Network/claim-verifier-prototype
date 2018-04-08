@@ -5,15 +5,32 @@ import (
 	"github.com/gobuffalo/buffalo"
 )
 
-type Recipient struct {
+type RecipientController struct {
 	Controller
+	Resource buffalo.Resource
 }
 
 type RecipientResource struct {
 	buffalo.Resource
 }
 
-func (r Recipient) ToBlockchain(c buffalo.Context) error {
-	// TODO
-	return errors.New("")
+var Recipient RecipientController
+
+func init(){
+	Recipient = RecipientController{
+		Controller{
+			BaseUrl:"/recipient/",
+			Routes: map[string]string{
+				"2bc":"{recipient}/to-blockchain/",
+			},
+		},
+		RecipientResource{},
+	}
+}
+
+func (r RecipientController) ToBlockchain() (string, buffalo.Handler) {
+	return r.Url("2bc"), func(c buffalo.Context) error {
+		// TODO
+		return errors.New("")
+	}
 }
