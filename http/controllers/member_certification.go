@@ -7,7 +7,6 @@ import (
 
 type MemberCertificationController struct {
 	Controller
-	Resource buffalo.Resource
 }
 
 type MemberCertificationResource struct {
@@ -23,8 +22,8 @@ func init() {
 			Routes: map[string]string{
 				"2bc": "{memberCertification}/to-blockchain/",
 			},
+			Resource: InstitutionResource{},
 		},
-		InstitutionResource{},
 	}
 }
 

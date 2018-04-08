@@ -7,7 +7,6 @@ import (
 
 type MemberController struct {
 	Controller
-	Resource buffalo.Resource
 }
 
 type MemberResource struct {
@@ -25,8 +24,8 @@ func init(){
 				"add":"{member}/certifications/add/",
 				"bcn":"{member}/blockchain/",
 			},
+			Resource: MemberResource{},
 		},
-		MemberResource{},
 	}
 }
 

@@ -7,7 +7,6 @@ import (
 
 type InstitutionController struct {
 	Controller
-	Resource buffalo.Resource
 }
 
 type InstitutionResource struct {
@@ -25,8 +24,8 @@ func init(){
 				"2bc":"{institution}/students/toBlockchain/",
 				"bcn":"{institution}/students/blockchain/",
 			},
+			Resource:InstitutionResource{},
 		},
-		InstitutionResource{},
 	}
 }
 

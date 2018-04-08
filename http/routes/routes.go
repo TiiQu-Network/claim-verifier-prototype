@@ -37,5 +37,5 @@ func Routes(app *buffalo.App) {
 	app.GET(mbrCrts.ToBlockchain())
 
 	// Data-hash routes
-	app.Resource("/dataHash/", new(controllers.DataHashResource))
+	app.Resource("/dataHash/", controllers.DataHashResource{})
 }

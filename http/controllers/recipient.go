@@ -7,7 +7,6 @@ import (
 
 type RecipientController struct {
 	Controller
-	Resource buffalo.Resource
 }
 
 type RecipientResource struct {
@@ -23,8 +22,8 @@ func init(){
 			Routes: map[string]string{
 				"2bc":"{recipient}/to-blockchain/",
 			},
+			Resource: RecipientResource{},
 		},
-		RecipientResource{},
 	}
 }
 
