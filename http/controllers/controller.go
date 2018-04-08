@@ -6,5 +6,8 @@ type Controller struct {
 }
 
 func (c Controller) Url(i string) string {
+	if i == "" {
+		return c.BaseUrl
+	}
 	return c.BaseUrl + c.Routes[i]
 }
