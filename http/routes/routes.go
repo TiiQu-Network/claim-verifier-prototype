@@ -32,9 +32,9 @@ func Routes(app *buffalo.App) {
 	app.GET(mbr.Blockchain())
 
 	// Certification routes
-	memberCertificationController := new(controllers.MemberCertification)
-	app.Resource("/member-certification/", new(controllers.MemberCertificationResource))
-	app.GET("/member-certification/{memberCertification}/to-blockchain/", memberCertificationController.ToBlockchain)
+	mbrCrts := controllers.MemberCertification
+	app.Resource(mbrCrts.Url(""), mbrCrts.Resource)
+	app.GET(mbrCrts.ToBlockchain())
 
 	// Data-hash routes
 	app.Resource("/dataHash/", new(controllers.DataHashResource))
