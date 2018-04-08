@@ -25,11 +25,11 @@ func Routes(app *buffalo.App) {
 	app.GET(recp.ToBlockchain())
 
 	// Platform Members routes
-	memberController := new(controllers.Member)
-	app.Resource("/member/", new(controllers.MemberResource))
-	app.GET("/member/{member}/certifications/", memberController.Certifications)
-	app.GET("/member/{member}/certifications/add/", memberController.AddCertification)
-	app.GET("/member/{member}/blockchain/", memberController.Blockchain)
+	mbr := controllers.Member
+	app.Resource(mbr.Url(""), mbr.Resource)
+	app.GET(mbr.Certifications())
+	app.GET(mbr.AddCertification())
+	app.GET(mbr.Blockchain())
 
 	// Certification routes
 	memberCertificationController := new(controllers.MemberCertification)

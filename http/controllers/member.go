@@ -5,25 +5,48 @@ import (
 	"github.com/gobuffalo/buffalo"
 )
 
-type Member struct {
+type MemberController struct {
 	Controller
+	Resource buffalo.Resource
 }
 
 type MemberResource struct {
 	buffalo.Resource
 }
 
-func (m Member) Certifications(c buffalo.Context) error {
-	// TODO
-	return errors.New("")
+var Member MemberController
+
+func init(){
+	Member = MemberController{
+		Controller{
+			BaseUrl:"/member/",
+			Routes: map[string]string{
+				"crts":"{member}/certifications",
+				"add":"{member}/certifications/add/",
+				"bcn":"{member}/blockchain/",
+			},
+		},
+		MemberResource{},
+	}
 }
 
-func (m Member) AddCertification(c buffalo.Context) error {
-	// TODO
-	return errors.New("")
+func (m MemberController) Certifications() (string, buffalo.Handler) {
+	return m.Url("crts"), func(c buffalo.Context) error {
+		// TODO
+		return errors.New("")
+	}
 }
 
-func (m Member) Blockchain(c buffalo.Context) error {
-	// TODO
-	return errors.New("")
+func (m MemberController) AddCertification() (string, buffalo.Handler) {
+	return m.Url("add"), func(c buffalo.Context) error {
+		// TODO
+		return errors.New("")
+	}
+}
+
+func (m MemberController) Blockchain() (string, buffalo.Handler) {
+	return m.Url("bcn"), func(c buffalo.Context) error {
+		// TODO
+		return errors.New("")
+	}
 }
